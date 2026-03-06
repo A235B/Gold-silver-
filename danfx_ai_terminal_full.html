@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DanFx AI Gold & Silver Terminal</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0f19;
+    color:white;
+}
+
+header{
+    background:#111827;
+    padding:16px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:#111827;
+    padding:20px;
+    border-radius:10px;
+}
+
+h2{
+    margin-top:0;
+}
+
+iframe{
+    width:100%;
+    height:420px;
+    border:none;
+}
+
+input{
+    padding:8px;
+    margin:5px;
+    width:120px;
+}
+
+button{
+    padding:10px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.zone{
+    padding:8px;
+    margin:6px 0;
+    border-radius:6px;
+}
+
+.buy{background:#064e3b;}
+.sell{background:#4c0519;}
+.news{background:#1e3a8a;}
+.targets{background:#3f3f46;}
+
+footer{
+    text-align:center;
+    padding:12px;
+    background:#111827;
+}
+</style>
+</head>
+
+<body>
+
+<header>DanFx AI Gold & Silver Trading Terminal</header>
+
+<div class="grid">
+
+<div class="card">
+<h2>Live Gold Chart (XAUUSD)</h2>
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=60&theme=dark"></iframe>
+</div>
+
+<div class="card">
+<h2>Live Silver Chart (XAGUSD)</h2>
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAGUSD&interval=60&theme=dark"></iframe>
+</div>
+
+<div class="card">
+<h2>US Dollar Index (DXY)</h2>
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=TVC:DXY&interval=60&theme=dark"></iframe>
+</div>
+
+<div class="card">
+<h2>High Impact News Guide</h2>
+<div class="zone news">CPI → Strong CPI usually pushes Gold down</div>
+<div class="zone news">NFP → Strong jobs can strengthen USD</div>
+<div class="zone news">FOMC → Interest rate decisions move Gold heavily</div>
+</div>
+
+<div class="card">
+<h2>Entry Zones Example</h2>
+<div class="zone buy">Buy Zone: 2342 – 2346</div>
+<div class="zone sell">Sell Zone: 2368 – 2372</div>
+
+<h3>Targets</h3>
+<div class="zone targets">TP1: 2360</div>
+<div class="zone targets">TP2: 2380</div>
+<div class="zone targets">TP3: 2400</div>
+</div>
+
+<div class="card">
+<h2>Fibonacci Pullback Calculator</h2>
+
+<p>High</p>
+<input id="high">
+
+<p>Low</p>
+<input id="low">
+
+<br><br>
+
+<button onclick="calc()">Calculate</button>
+
+<div id="result"></div>
+
+</div>
+
+<div class="card">
+<h2>Trading Sessions (Kenya Time)</h2>
+<p>Asian: 3 AM</p>
+<p>London: 10 AM</p>
+<p>New York: 4 PM</p>
+</div>
+
+<div class="card">
+<h2>Manual Trade Planner</h2>
+
+Entry:
+<input id="entry">
+
+Stop:
+<input id="stop">
+
+Target:
+<input id="target">
+
+<br><br>
+
+<button onclick="plan()">Save Plan</button>
+
+<div id="planresult"></div>
+
+</div>
+
+</div>
+
+<footer>
+DanFx AI Terminal — Open this file in Chrome for full dashboard view
+</footer>
+
+<script>
+function calc(){
+
+var high=parseFloat(document.getElementById("high").value)
+var low=parseFloat(document.getElementById("low").value)
+
+var diff=high-low
+
+var fib38=high-diff*0.382
+var fib50=high-diff*0.5
+var fib61=high-diff*0.618
+
+document.getElementById("result").innerHTML=
+"0.382: "+fib38.toFixed(2)+"<br>"+
+"0.5: "+fib50.toFixed(2)+"<br>"+
+"0.618: "+fib61.toFixed(2)
+
+}
+
+function plan(){
+
+var entry=document.getElementById("entry").value
+var stop=document.getElementById("stop").value
+var target=document.getElementById("target").value
+
+document.getElementById("planresult").innerHTML=
+"Trade Plan Saved:<br>Entry: "+entry+"<br>Stop: "+stop+"<br>Target: "+target
+
+}
+</script>
+
+</body>
+</html>

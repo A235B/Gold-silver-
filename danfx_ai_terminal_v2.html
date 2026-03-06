@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DanFx AI Terminal V2</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0f19;
+    color:white;
+}
+header{
+    background:#111827;
+    padding:15px;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+}
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+.card{
+    background:#111827;
+    padding:20px;
+    border-radius:10px;
+}
+h2{
+    margin-top:0;
+}
+input{
+    padding:8px;
+    margin:5px;
+    width:90px;
+}
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+.result{
+    margin-top:10px;
+    font-size:14px;
+}
+.session{
+    font-size:18px;
+    margin-top:10px;
+}
+footer{
+    text-align:center;
+    padding:10px;
+    background:#111827;
+}
+iframe{
+    width:100%;
+    height:400px;
+    border:none;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>DanFx AI Gold & Silver Terminal V2</header>
+
+<div class="grid">
+
+<div class="card">
+<h2>Live Gold Chart</h2>
+<iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=60"></iframe>
+</div>
+
+<div class="card">
+<h2>High Impact News</h2>
+<ul>
+<li>CPI – Inflation Data</li>
+<li>NFP – Employment Report</li>
+<li>FOMC – Interest Rate Decision</li>
+<li>Geopolitical Conflict</li>
+</ul>
+<p>General Impact:</p>
+<ul>
+<li>Strong USD → Gold bearish</li>
+<li>Weak USD → Gold bullish</li>
+<li>War / crisis → Gold bullish</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Market Bias</h2>
+<p>XAUUSD Bullish above: <b>2340</b></p>
+<p>XAUUSD Bearish below: <b>2335</b></p>
+<p>Silver Bullish above: <b>26.10</b></p>
+</div>
+
+<div class="card">
+<h2>Fibonacci Pullback Calculator</h2>
+
+<p>High</p>
+<input id="high">
+
+<p>Low</p>
+<input id="low">
+
+<br><br>
+
+<button onclick="calc()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<div class="card">
+<h2>Gold Trade Example</h2>
+<p>Entry Zone: 2342 – 2346</p>
+<p>Sell Zone: 2368 – 2372</p>
+<p>Targets:</p>
+<ul>
+<li>TP1 2360</li>
+<li>TP2 2380</li>
+<li>TP3 2400</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Trading Sessions (Kenya Time)</h2>
+
+<div class="session">Asian: 3 AM</div>
+<div class="session">London: 10 AM</div>
+<div class="session">New York: 4 PM</div>
+
+</div>
+
+</div>
+
+<footer>
+DanFx AI Terminal Prototype V2
+</footer>
+
+<script>
+function calc(){
+
+var high = parseFloat(document.getElementById("high").value)
+var low = parseFloat(document.getElementById("low").value)
+
+var diff = high - low
+
+var fib38 = high - diff*0.382
+var fib50 = high - diff*0.5
+var fib61 = high - diff*0.618
+
+document.getElementById("result").innerHTML =
+"0.382 Pullback: " + fib38.toFixed(2) + "<br>" +
+"0.5 Pullback: " + fib50.toFixed(2) + "<br>" +
+"0.618 Pullback: " + fib61.toFixed(2)
+
+}
+</script>
+
+</body>
+</html>
