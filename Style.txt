@@ -1,0 +1,59 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #FFD700;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.pair {
+    background-color: #222;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #111;
+    color: #888;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* News List */
+#news-list li {
+    padding: 8px;
+    border-bottom: 1px solid #333;
+}

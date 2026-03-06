@@ -1,0 +1,38 @@
+// Dummy data simulation
+const newsData = [
+    { title: "Gold Rises as Dollar Weakens", impact: "High" },
+    { title: "Silver Demand Increases Amid Inflation", impact: "Medium" },
+    { title: "OPEC Cuts Crude Supply", impact: "High" },
+];
+
+const priceData = {
+    XAUUSD: { current: 1985.25, zone: "1975-1990", targets: "2000, 2025" },
+    Silver: { current: 24.15, zone: "23.8-24.5", targets: "25, 26.5" }
+};
+
+// Function to load news
+function loadNews() {
+    const newsList = document.getElementById('news-list');
+    newsData.forEach(news => {
+        const li = document.createElement('li');
+        li.textContent = `[${news.impact}] ${news.title}`;
+        newsList.appendChild(li);
+    });
+}
+
+// Function to load prices
+function loadPrices() {
+    document.getElementById('xauusd-price').textContent = priceData.XAUUSD.current;
+    document.getElementById('xauusd-zone').textContent = priceData.XAUUSD.zone;
+    document.getElementById('xauusd-targets').textContent = priceData.XAUUSD.targets;
+
+    document.getElementById('silver-price').textContent = priceData.Silver.current;
+    document.getElementById('silver-zone').textContent = priceData.Silver.zone;
+    document.getElementById('silver-targets').textContent = priceData.Silver.targets;
+}
+
+// Initialize
+window.onload = () => {
+    loadNews();
+    loadPrices();
+};

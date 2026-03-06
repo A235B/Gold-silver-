@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanFx Swing Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>DanFx Swing Terminal</h1>
+    </header>
+
+    <main>
+        <section id="news-section">
+            <h2>High Impact News</h2>
+            <ul id="news-list">
+                <!-- News items will be injected here -->
+            </ul>
+        </section>
+
+        <section id="price-section">
+            <h2>XAUUSD & Silver Major Targets</h2>
+            <div id="prices">
+                <div class="pair">
+                    <h3>XAUUSD</h3>
+                    <p>Current: <span id="xauusd-price">Loading...</span></p>
+                    <p>Pullback Zone: <span id="xauusd-zone">Loading...</span></p>
+                    <p>Major Targets: <span id="xauusd-targets">Loading...</span></p>
+                </div>
+                <div class="pair">
+                    <h3>Silver</h3>
+                    <p>Current: <span id="silver-price">Loading...</span></p>
+                    <p>Pullback Zone: <span id="silver-zone">Loading...</span></p>
+                    <p>Major Targets: <span id="silver-targets">Loading...</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 DanFxSwingTerminal</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
